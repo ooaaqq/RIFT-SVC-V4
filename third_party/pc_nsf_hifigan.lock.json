@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "code": {
+    "license": "MIT",
+    "repository": "https://github.com/openvpi/SingingVocoders.git",
+    "revision": "4d0889c4c180c75ad3000cc565864656344f8190"
+  },
+  "checkpoint": {
+    "asset_id": 239845622,
+    "filename": "pc_nsf_hifigan_44.1k_hop512_128bin_2025.02.zip",
+    "license": "CC-BY-NC-SA-4.0",
+    "release_tag": "v1.0.0",
+    "sha256": "636845f96066ab95c188c677713f4359ae53eae9669a7500d926c97174c3590c",
+    "extracted_sha256": "12884ead83ad17406098b2b32f12e613e78fcfc1436a87ac9d2d1bb0a27b21d6",
+    "size_bytes": 377291683,
+    "url": "https://github.com/openvpi/SingingVocoders/releases/download/v1.0.0/pc_nsf_hifigan_44.1k_hop512_128bin_2025.02.zip"
+  },
+  "training_policy": {
+    "config_path": "configs/ft_hifigan.yaml",
+    "mini_nsf": true,
+    "pc_aug": true,
+    "pc_aug_rate": 0.4,
+    "precision": "32-true"
+  },
+  "feature_contract": {
+    "sample_rate": 44100,
+    "hop_length": 512,
+    "n_fft": 2048,
+    "win_length": 2048,
+    "mel_channels": 128,
+    "fmin": 40,
+    "fmax": 16000,
+    "log_base": "e",
+    "mel_scale": "slaney",
+    "mel_norm": "slaney",
+    "power": 1.0,
+    "center": false,
+    "pad_mode": "reflect",
+    "log_clamp": 1e-9
+  },
+  "integrity_note": "SHA-256 recorded from the complete 377291683-byte official GitHub release asset on 2026-09-02."
+}

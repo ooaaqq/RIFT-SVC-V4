@@ -1,0 +1,130 @@
+{
+  "schema_version": 4,
+  "sample_rate": 44100,
+  "hop_length": 512,
+  "mel": {
+    "channels": 128,
+    "n_fft": 2048,
+    "win_length": 2048,
+    "fmin": 40,
+    "fmax": 16000,
+    "log_base": "e",
+    "mel_scale": "slaney",
+    "mel_norm": "slaney",
+    "power": 1.0,
+    "center": false,
+    "pad_mode": "reflect",
+    "log_clamp": 1e-9,
+    "normalization": "dataset_channelwise"
+  },
+  "model": {
+    "dim": 1024,
+    "depth": 16,
+    "head_dim": 64,
+    "ff_hidden_dim": 2816,
+    "kernel_size": 31,
+    "content_dim": 768,
+    "attention_scale": "sqrt_head"
+  },
+  "content_encoder": {
+    "repository": "lengyue233/content-vec-best",
+    "revision": "ab04aa7067b99ee05cc82499bc64916b980a1967",
+    "sample_rate": 16000,
+    "phase_shift_seconds": 0.01
+  },
+  "sampling": {
+    "frame_buckets": [256, 384, 512],
+    "bucket_probabilities": [0.2, 0.3, 0.5],
+    "dataset_probabilities": {
+      "ACE-Opencpop": 0.02,
+      "GTSinger": 0.32,
+      "Kiritan": 0.01,
+      "M4Singer": 0.20,
+      "Opencpop": 0.015,
+      "OpenSinger": 0.435
+    },
+    "speaker_duration_exponent": 0.5,
+    "speaker_probability_floor_ratio": 0.5,
+    "speaker_probability_ceiling_ratio": 2.0,
+    "song_duration_exponent": 0.5,
+    "song_probability_floor_ratio": 0.5,
+    "song_probability_ceiling_ratio": 2.0,
+    "dataset_families": {
+      "ACE-Opencpop": "Opencpop-family",
+      "Opencpop": "Opencpop-family"
+    },
+    "family_probability_caps": {
+      "Opencpop-family": 0.035
+    },
+    "synthetic_datasets": ["ACE-Opencpop"],
+    "max_singleton_real_speaker_median_ratio": 3.0,
+    "batch_size": 64,
+    "batch_frame_budget": 16384,
+    "steps_per_epoch": 1000,
+    "seed": 2026,
+    "voiced_crop_probability": 0.7
+  },
+  "training": {
+    "max_steps": 500000,
+    "learning_rate": 0.00015,
+    "speaker_learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "freeze_timestep_and_modulation": false,
+    "warmup_steps": 15000,
+    "learning_rate_schedule": "constant_after_warmup",
+    "grad_clip_norm": 1.0,
+    "speaker_drop_probability": 0.05,
+    "precision": "bf16",
+    "ema_decay": 0.9999,
+    "gradient_accumulation_steps": 1,
+    "log_every_steps": 20,
+    "audit_checkpoint_every_steps": 2000,
+    "resume_checkpoint_every_steps": 5000,
+    "validation_every_steps": 5000,
+    "min_learning_rate_ratio": null
+  },
+  "performance": {
+    "matmul_fp32_precision": "tf32",
+    "conv_fp32_precision": "tf32",
+    "sdpa_backend": "cudnn",
+    "compile_model": true,
+    "compile_mode": "max-autotune",
+    "fused_adamw": true,
+    "float8_training": false,
+    "float8_recipe": "rowwise_with_gw_hp",
+    "compile_warmup_buckets": true,
+    "compile_warmup_steps_per_bucket": 2
+  },
+  "inference": {
+    "time_schedule": "cosine"
+  },
+  "evaluation": {
+    "audio_panel_steps": [50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000],
+    "audio_panel_samples": 8,
+    "audio_panel_frames": 768,
+    "endpoint_panel_frames": [512, 768],
+    "endpoint_panel_samples": 16,
+    "rf_audit_timesteps": [0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95],
+    "counterfactual_pairs": 32,
+    "speaker_encoder_repository": "microsoft/wavlm-base-plus-sv",
+    "speaker_encoder_revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+    "inference_steps": 32,
+    "guidance": 1.2,
+    "validation_recordings_per_song": 2
+  },
+  "vocoder": {
+    "architecture": "PC-NSF-HiFiGAN",
+    "sample_rate": 44100,
+    "hop_length": 512,
+    "mel_channels": 128,
+    "fmin": 40,
+    "fmax": 16000,
+    "log_base": "e",
+    "mel_scale": "slaney",
+    "mel_norm": "slaney",
+    "power": 1.0,
+    "center": false,
+    "pad_mode": "reflect",
+    "log_clamp": 1e-9
+  }
+}

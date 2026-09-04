@@ -1,0 +1,23 @@
+.cache/
+.pytest_cache/
+.ruff_cache/
+.venv/
+__pycache__/
+*.pyc
+.coverage
+build/
+dist/
+*.egg-info/
+
+# Local datasets, extracted features, runs, and model weights never enter Git.
+data/
+features/
+runs/
+checkpoints/
+pretrained/
+*.ckpt
+*.pt
+*.pth
+*.wav
+*.flac
+third_party/*.resolved.json

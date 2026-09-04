@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "repository": "lengyue233/content-vec-best",
+  "revision": "ab04aa7067b99ee05cc82499bc64916b980a1967",
+  "config": {
+    "filename": "config.json",
+    "sha256": "2ddde063b795d38d9051a7215a092fecf4cfe148b54251e38de51d88d356898b",
+    "size_bytes": 1388
+  },
+  "weights": {
+    "filename": "pytorch_model.bin",
+    "sha256": "d8dd400e054ddf4e6be75dab5a2549db748cc99e756a097c496c099f65a4854e",
+    "size_bytes": 378342945
+  }
+}

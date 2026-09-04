@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "corpora": {
+    "ACE-Opencpop": {
+      "manifest": "ace.content.jsonl",
+      "role": "low_weight_synthetic",
+      "expected_entries": 105450,
+      "raw_hours": [128.2, 128.6],
+      "vocoder": false
+    },
+    "GTSinger": {
+      "manifest": "gtsinger.content.jsonl",
+      "role": "main_real",
+      "expected_entries": 28628,
+      "raw_hours": [79.5, 81.5],
+      "vocoder": true
+    },
+    "Kiritan": {
+      "manifest": "kiritan.content.jsonl",
+      "role": "low_weight_real",
+      "expected_entries": 50,
+      "raw_hours": [3.4, 3.7],
+      "vocoder": true
+    },
+    "M4Singer": {
+      "manifest": "m4.content.jsonl",
+      "role": "main_real",
+      "expected_entries": 20896,
+      "raw_hours": [29.6, 29.8],
+      "vocoder": true
+    },
+    "OpenSinger": {
+      "manifest": "opensinger.content.jsonl",
+      "role": "main_real",
+      "expected_entries": 43075,
+      "raw_hours": [51.8, 52.1],
+      "vocoder": true
+    },
+    "Opencpop": {
+      "manifest": "opencpop.content.jsonl",
+      "role": "main_real",
+      "expected_entries": 3756,
+      "raw_hours": [5.1, 5.3],
+      "vocoder": true
+    }
+  },
+  "excluded": {
+    "ACE-KiSing": "Optional synthetic material with no first-run necessity",
+    "KiSing": "The available copy has severe clipping and DC-offset failures",
+    "PopCS": "The release is only 22.05 kHz",
+    "opensinger-female": "Rejected 16 kHz subset mirror",
+    "opensinger-male": "Rejected 16 kHz subset mirror"
+  }
+}
